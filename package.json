@@ -1,17 +1,17 @@
 {
   "name": "my-electron-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "一个简单的 Electron 桌面应用,用于学习 Electron 的开发",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "多云",
   "license": "ISC",
   "packageManager": "pnpm@10.8.0",
   "dependencies": {
-    "electron": "^37.2.0"
+    "electron": "^37.2.1"
   }
 }
