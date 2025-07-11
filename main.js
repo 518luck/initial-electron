@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron')
+const path = require('path')
 // app，这个模块控制着您应用程序的事件生命周期。
 // BrowserWindow，这个模块创建和管理 app 的窗口。
 
@@ -10,6 +11,9 @@ const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+    },
   })
 
   win.loadFile('index.html')
