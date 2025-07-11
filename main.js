@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 // app，这个模块控制着您应用程序的事件生命周期。
 // BrowserWindow，这个模块创建和管理 app 的窗口。
@@ -17,11 +17,14 @@ const createWindow = () => {
   })
 
   win.loadFile('index.html')
+  win.webContents.openDevTools()
 }
 
 // 在应用准备就绪时调用函数
 app.whenReady().then(() => {
+  ipcMain.handle('ping', () => 'pong')
   createWindow()
+
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow()
